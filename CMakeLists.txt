@@ -3,9 +3,14 @@ cmake_minimum_required(VERSION 2.8)
 SET( CMAKE_CXX_COMPILER /usr/bin/clang++ )
 add_definitions( -std=c++11 -Wall )
 
-include_directories( ${PROJECT_SOURCE_DIR}/external/glew/include ${PROJECT_SOURCE_DIR}/external/glfw/include )
+SET( GLEW ${PROJECT_SOURCE_DIR}/external/glew )
+SET( GLFW ${PROJECT_SOURCE_DIR}/external/glfw )
+SET( BOOST ${PROJECT_SOURCE_DIR}/external/boost )
 
-link_directories( ${PROJECT_SOURCE_DIR}/external/glew/lib ${PROJECT_SOURCE_DIR}/external/glfw/lib )
+include_directories( ${GLEW}/include ${GLFW}/include ${BOOST}/include )
+
+link_directories( ${GLEW}/lib ${GLFW}/lib  )
+
 add_executable(myapp ${PROJECT_SOURCE_DIR}/opengl/main.cpp)
 
 IF(APPLE)
