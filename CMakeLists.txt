@@ -12,7 +12,8 @@ include_directories( ${GLEW}/include ${GLFW}/include ${BOOST}/include )
 
 link_directories( ${GLEW}/lib ${GLFW}/lib  )
 
-add_executable(myapp ${PROJECT_SOURCE_DIR}/opengl/main.cpp)
+file( GLOB_RECURSE SOURCES "${PROJECT_SOURCE_DIR}/opengl/*" )
+add_executable(myapp ${SOURCES} )
 
 IF(APPLE)
     #    include_directories( /System/Library/Frameworks )
