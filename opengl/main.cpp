@@ -1,19 +1,18 @@
-//
-//  main.cpp
-//  opengl
-//
-//  Created by tsuchida yuuki on 2015/02/16.
-//  Copyright (c) 2015年 tsuchida yuuki. All rights reserved.
-//
-
 #include <iostream>
 #include <boost/format.hpp>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
+
 static void error_callback( int error, const char* description )
 {
     std::cerr << boost::format( "%1%( %2% )" ) % description % error << std::endl;
+}
+
+static void framebuffer_size_callback(GLFWwindow* window, int width, int height)
+{
+    std::cout <<  boost::format( "width : %1% height %2%" ) % width % height << std::endl;
+    glViewport(0, 0, width, height);
 }
 
 int main(int argc, const char * argv[]) 
@@ -51,6 +50,8 @@ int main(int argc, const char * argv[])
         puts((const char*)glewGetErrorString(glewErr));
         return 1;
     }
+
+    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
     while( !glfwWindowShouldClose( window ) )
     {
