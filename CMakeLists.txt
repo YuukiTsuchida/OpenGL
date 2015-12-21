@@ -9,8 +9,9 @@ SET( GLEW ${PROJECT_SOURCE_DIR}/external/glew )
 SET( GLFW ${PROJECT_SOURCE_DIR}/external/glfw )
 SET( FREETYPE ${PROJECT_SOURCE_DIR}/external/freetype )
 SET( BOOST ${PROJECT_SOURCE_DIR}/external/boost )
+SET( SRC ${PROJECT_SOURCE_DIR}/opengl )
 
-include_directories( ${GLEW}/include ${GLFW}/include ${BOOST}/include ${FREETYPE}/include )
+include_directories( ${GLEW}/include ${GLFW}/include ${BOOST}/include ${FREETYPE}/include ${SRC} )
 
 link_directories( ${GLEW}/lib ${GLFW}/lib ${FREETYPE}/lib )
 

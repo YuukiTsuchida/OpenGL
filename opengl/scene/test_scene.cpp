@@ -1,8 +1,11 @@
 #include "test_scene.hpp"
+#include "math/vector3.hpp"
 
 #include <GL/glew.h>
 
 #include <iostream>
+
+#include "math/matrix4.hpp"
 
 
 static GLuint vertex_buffer;
@@ -15,6 +18,14 @@ test_scene::~test_scene()
 
 void test_scene::init()
 {
+    constexpr math::vector3 test( 1.0f, 1.0f, 1.0f );
+    constexpr math::vector3 test2( -1.0f, -1.0f, -1.0f );
+//     std::cout << test.to_string() << std::endl;
+//     test.zero();
+//     std::cout << test.to_string() << std::endl;
+    std::cout << test.dot( test2 ) << std::endl;   
+    std::cout << ( test2 != test ) << std::endl;
+
     std::cout << "init" << std::endl;
 
     static const float vertices[][3] = {
